@@ -1,6 +1,6 @@
 import json
 import os
-import gatpass
+import getpass
 
 ARQUIVO = 'dados.json'
 
@@ -111,24 +111,26 @@ def alterar_cadastro():
 
 def menu():
     while True:
-        print("\n==== MENU ====")
-        print("1. Cadastrar")
-        print("2. Listar")
-        print("3. Alterar")
-        print("4. Sair")
+        try:
+            print("\n==== MENU ====")
+            print("1. Cadastrar")
+            print("2. Listar")
+            print("3. Alterar")
+            print("4. Sair")
 
-        escolha = input("Opção: ")
+            escolha = int(input("Opção: "))
 
-        if escolha == '1':
-            cadastrar_pessoa()
-        elif escolha == '2':
-            listar_pessoas()
-        elif escolha == '3':
-            alterar_cadastro()
-        elif escolha == '4':
-            print("Encerrando...")
-            break
-        else:
-            print("Opção inválida, tente de novo.")
-
+            if escolha == 1:
+                cadastrar_pessoa()
+            elif escolha == 2:
+                listar_pessoas()
+            elif escolha == 3:
+                alterar_cadastro()
+            elif escolha == 4:
+                print("Encerrando...")
+                break
+            else:
+                print("Opção inválida, tente de novo.")
+        except:
+            print('Entrada inválida!')
 menu()
