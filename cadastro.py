@@ -18,13 +18,49 @@ def cadastrar_pessoa():
     print("\n--- Novo Cadastro ---")
     pessoa = {}
     pessoa['nome'] = input("Nome: ")
-    pessoa['cpf'] = input("CPF: ")
+
+    while True:
+        cpf = input("CPF: ")
+        if cpf.isdigit():
+            pessoa['cpf'] = int(cpf)
+            break
+        else:
+            print("Digite apenas números para o CPF.")
+
     pessoa['email'] = input("Email: ")
     pessoa['endereco'] = input("Endereço: ")
-    pessoa['idade'] = input("Idade: ")
-    pessoa['nota1'] = input("Nota 1: ")
-    pessoa['nota2'] = input("Nota 2: ")
-    pessoa['trabalho'] = input("Nota do trabalho: ")
+
+    while True:
+        idade = input("Idade: ")
+        if idade.isdigit():
+            pessoa['idade'] = int(idade)
+            break
+        else:
+            print("Digite apenas números para a idade.")
+
+    while True:
+        nota1 = input("Nota 1: ")
+        if nota1.isdigit():
+            pessoa['nota1'] = int(nota1)
+            break
+        else:
+            print("Digite apenas números para as notas.")
+
+    while True:
+        nota2 = input("Nota 2: ")
+        if nota2.isdigit():
+            pessoa['nota2'] = int(nota2)
+            break
+        else:
+            print("Digite apenas números para as notas.")
+
+    while True:
+        trabalho = input("Nota do trabalho: ")
+        if trabalho.isdigit():
+            pessoa['trabalho'] = int(trabalho)
+            break
+        else:
+            print("Digite apenas números para as notas.")
 
     while True:
         senha = getpass.getpass("Crie uma senha (mínimo 8 caracteres): ").strip()
@@ -109,6 +145,10 @@ def alterar_cadastro():
 
     print("CPF não encontrado.")
 
+def encerrar():
+    os.system('cls')
+    print('Encerrando...')
+
 def menu():
     while True:
         try:
@@ -127,7 +167,7 @@ def menu():
             elif escolha == 3:
                 alterar_cadastro()
             elif escolha == 4:
-                print("Encerrando...")
+                encerrar()
                 break
             else:
                 print("Opção inválida, tente de novo.")
