@@ -39,28 +39,37 @@ def cadastrar_pessoa():
             print("Digite apenas números para a idade.")
 
     while True:
-        nota1 = input("Nota 1: ")
-        if nota1.isdigit():
-            pessoa['nota1'] = int(nota1)
-            break
-        else:
-            print("Digite apenas números para as notas.")
+        try:
+            nota1 = float(input("Nota 1: "))
+            if 0 <= nota1 <= 10:
+                pessoa['nota1'] = nota1
+                break
+            else:
+                print("Digite uma nota entre 0 e 10.")
+        except:
+            print("Digite um número válido.")
 
     while True:
-        nota2 = input("Nota 2: ")
-        if nota2.isdigit():
-            pessoa['nota2'] = int(nota2)
-            break
-        else:
-            print("Digite apenas números para as notas.")
+        try:
+            nota2 = float(input("Nota 2: "))
+            if 0 <= nota2 <= 10:
+                pessoa['nota2'] = nota2
+                break
+            else:
+                print("Digite uma nota entre 0 e 10.")
+        except:
+            print("Digite um número válido.")
 
     while True:
-        trabalho = input("Nota do trabalho: ")
-        if trabalho.isdigit():
-            pessoa['trabalho'] = int(trabalho)
-            break
-        else:
-            print("Digite apenas números para as notas.")
+        try:
+            trabalho = float(input("trabalho: "))
+            if 0 <= trabalho <= 10:
+                pessoa['trabalho'] = trabalho
+                break
+            else:
+                print("Digite uma nota entre 0 e 10.")
+        except:
+            print("Digite um número válido.")
 
     while True:
         senha = getpass.getpass("Crie uma senha (mínimo 8 caracteres): ").strip()
